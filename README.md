@@ -49,7 +49,7 @@ Authentication and authorization api
 ```bash
 
 # Clone this repository
-$ git clone https://github.com/LucasJunio/bank
+$ git clone https://github.com/LucasJunio/authentication-authorization-jwt-inversify-express
 
 # Acces the project folder in your terminal/cmd
 $ cd bank
