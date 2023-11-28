@@ -1,5 +1,5 @@
 <h1 align="center">
-     🐙 <a href="#" alt=""> Node.js Test Bank</a>
+     🐙 <a href="#" alt=""> Node.js Test Authenticatio/Authorization</a>
 </h1>
 
 <h3 align="center">
@@ -52,19 +52,19 @@ Authentication and authorization api
 $ git clone https://github.com/LucasJunio/authentication-authorization-jwt-inversify-express
 
 # Acces the project folder in your terminal/cmd
-$ cd bank
+$ cd authentication-authorization-jwt-inversify-express
 
 # Copy base.env to .env
 $ cp base.env .env
 
 # Build the image docker
-$ docker build -t bank .
+$ docker build -t auth .
 
 # Run tests
-$ docker run -e CI=true bank npm run test
+$ docker run -e CI=true auth npm run test
 
 # Build the container docker
-$ docker run -p 3000:3000 bank
+$ docker run -p 3000:3000 auth
 
 # Access SWAGGER documentation in:
 http://localhost:3000/api
