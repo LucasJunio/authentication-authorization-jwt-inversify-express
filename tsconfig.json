@@ -3,7 +3,7 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es2015",
-    "types": ["reflect-metadata", "mocha"],
+    "types": ["reflect-metadata"],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "lib": ["es6", "dom"],
@@ -11,14 +11,8 @@
     "outDir": "dist",
     "resolveJsonModule": true
   },
-  "include": [
-    "src/**/*.json",
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "test/**/*.ts"
-  ],
+  "include": ["src/**/*.json", "src/**/*.ts"],
+  "exclude": ["node_modules", "test/**/*.ts"],
   "compileOnSave": false,
   "buildOnSave": false
 }
