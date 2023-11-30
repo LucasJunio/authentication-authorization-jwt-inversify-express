@@ -1,7 +1,7 @@
-import { PrismaClient } from '@prisma/client';
-import { injectable } from 'inversify';
-import { IUserRepository } from '../../interfaces/user.repository.interface';
-import { UserDTO } from '../../dtos/user.dto';
+import { PrismaClient } from "@prisma/client";
+import { injectable } from "inversify";
+import { UserDTO } from "../../dtos/user.dto";
+import { IUserRepository } from "../../interfaces/user.repository.interface";
 
 const prisma = new PrismaClient();
 
