@@ -6,6 +6,7 @@ import { LoginInput } from '../inputs/login.input';
 import { IAuthenticationService } from '../interfaces/authentication.service.interface';
 import { IUserRepository } from '../interfaces/user.repository.interface';
 import { UserRepository } from '../repositories/user/user.repository';
+import { authenticationValidation } from '../validators/authentication';
 import EventEmitter = require('events');
 @injectable()
 export class AuthenticationService implements IAuthenticationService {
@@ -39,6 +40,9 @@ export class AuthenticationService implements IAuthenticationService {
     const { username, password } = input;
     return new Promise<string>(async (resolve, reject) => {
       try {
+        const { error } = authenticationValidation.validate(input);
+        if (error) reject(error.message);
+
         const user = await this.userRepository.findOneByUsername(username);
 
         console.log(user);

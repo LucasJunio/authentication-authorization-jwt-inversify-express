@@ -25,6 +25,7 @@
     "http-status": "^1.7.3",
     "inversify": "^6.0.2",
     "inversify-express-utils": "^6.4.6",
+    "joi": "^17.11.0",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
     "reflect-metadata": "^0.1.13",
