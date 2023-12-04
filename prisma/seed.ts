@@ -6,7 +6,7 @@ async function main() {
     update: {},
     create: {
       username: 'user',
-      password: '123456',
+      password: '$2b$10$iDy0.3AA8A26u37KlK5QheX9iwb5UrV51r44FbPtCo4BvTbBIG.Re',
     },
   });
 

@@ -41,17 +41,18 @@ export class AuthenticationService implements IAuthenticationService {
     return new Promise<string>(async (resolve, reject) => {
       try {
         const { error } = authenticationValidation.validate(input);
-        if (error) reject(error.message);
+
+        if (error) reject(error);
 
         const user = await this.userRepository.findOneByUsername(username);
 
-        console.log(user);
+        console.log({ user });
 
         if (!user) {
-          reject('Error username incorrect');
+          reject(new Error('Error username incorrect'));
         }
 
-        const equal = await bcrypt.compare(user.password, password);
+        const equal = await bcrypt.compare(password, user.password);
 
         if (equal) {
           const token = await jwt.sign({ username: user.username }, 'SECRET', {

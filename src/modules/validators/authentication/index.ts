@@ -5,7 +5,7 @@ export const authenticationValidation = Joi.object({
     'string.pattern.base': `username is a string.`,
   }),
 
-  password: Joi.number().required().messages({
+  password: Joi.string().required().messages({
     'string.pattern.base': `username is a string.`,
   }),
 });
