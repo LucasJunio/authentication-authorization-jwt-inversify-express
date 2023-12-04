@@ -6,11 +6,11 @@
  */
 
 export class UserDTO {
-    constructor(dto: Partial<UserDTO> = {}) {
-      Object.assign(this, dto);
-    }
-    id: number;
-    username: string;
-    password: string;
+  constructor(dto: Partial<UserDTO> = {}) {
+    Object.assign(this, dto);
   }
-  
+  id: number;
+  username: string;
+  password: string;
+  role: string;
+}

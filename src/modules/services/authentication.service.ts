@@ -1,4 +1,5 @@
 import * as bcrypt from 'bcrypt';
+import { Request } from 'express';
 import { inject, injectable } from 'inversify';
 import * as jwt from 'jsonwebtoken';
 import { LoginDTO } from '../dtos/login.dto';
@@ -23,7 +24,7 @@ export class AuthenticationService implements IAuthenticationService {
         this._authenticate(input)
           .then((response) => {
             if (response) {
-              emitter.emit('done', { token: response });
+              emitter.emit('done', response);
             } else {
               emitter.emit('error', new Error('Error in authenticate user, username or password incorrect'));
             }
@@ -36,9 +37,13 @@ export class AuthenticationService implements IAuthenticationService {
     });
   }
 
-  private async _authenticate(input: LoginInput): Promise<string> {
+  public async session(role: string, req: Request): Promise<void> {
+    req.session.role = role;
+  }
+
+  private async _authenticate(input: LoginInput): Promise<Partial<LoginDTO>> {
     const { username, password } = input;
-    return new Promise<string>(async (resolve, reject) => {
+    return new Promise<Partial<LoginDTO>>(async (resolve, reject) => {
       try {
         const { error } = authenticationValidation.validate(input);
 
@@ -46,26 +51,31 @@ export class AuthenticationService implements IAuthenticationService {
 
         const user = await this.userRepository.findOneByUsername(username);
 
-        console.log({ user });
-
         if (!user) {
           reject(new Error('Error username incorrect'));
         }
 
-        const equal = await bcrypt.compare(password, user.password);
+        const equal = await this._comparePassword(password, user.password);
 
         if (equal) {
-          const token = await jwt.sign({ username: user.username }, 'SECRET', {
-            expiresIn: 86400,
-          });
+          const token = await this._generateToken(user.username);
 
-          resolve(token);
+          resolve({ token, role: user.role });
         } else {
-          reject('Error username incorrect');
+          reject(new Error('There was an error authenticating user'));
         }
       } catch (error) {
         reject(error);
       }
+    });
+  }
+
+  private async _comparePassword(password: string, passwordDB: string): Promise<boolean> {
+    return await bcrypt.compare(password, passwordDB);
+  }
+  private async _generateToken(username: string): Promise<string> {
+    return await jwt.sign({ username }, process.env.JWT_SECRET, {
+      expiresIn: 86400,
     });
   }
 }
