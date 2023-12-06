@@ -35,7 +35,7 @@ export class AuthenticationController implements interfaces.Controller {
     }
   }
 
-  @httpGet('/', isAuthenticatedAndAuthorized)
+  @httpGet('/', isAuthenticatedAndAuthorized('admin'))
   public async privateRoute(@response() res: Response): Promise<Response> {
     try {
       const data = 'you are authenticated and authorized to access this private route';
