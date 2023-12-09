@@ -24,7 +24,7 @@ Beyond is good to has an editor for to work with the code like [VSCode](https://
 - [2. How To Run](#2-🔬-how-to-run)
   - [2.1 Containers](#21-containers)
   - [2.2 Local](#22-local)
-  - [2.3 Evaluating Sigin and Private Route](#23-evaluating)
+  - [2.3 Evaluating Signin and Private Route](#23-evaluating)
   - [2.4 API Endpoints](#24-endpoints)
 - [3. Prisma Local Database](#3-prisma-database)
 - [4. How to create a new branch](#4-new-branch)
@@ -119,7 +119,7 @@ $ yarn start
 
 The aplication going to open in port:3000 - access [http://localhost:3000](http://localhost:3000)
 
-### 2.3 Evaluating the login app
+### 2.3 Evaluating Signin and Private Route
 
 You can login by sending a POST request to the `/api/v1/login` endpoint. Here's an example using cURL:
 
