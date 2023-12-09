@@ -36,7 +36,7 @@ Prisma Local Database
 
 # 1. Overview
 
-Welcome to the Authentication and Authorization API! This API allows you to signin making authenticationa and authorization, receiving a token and a session cookie. This README provides instructions on how to set up and use the API. On this application you can see concepts like SOLID, EventEmitter, DRY.
+Welcome to the Authentication and Authorization API! This API allows you to signin making authenticationa and authorization, receiving a token and a session cookie. This README provides instructions on how to set up and use the API. On this application you can see concepts like SOLID, EventEmitter, DRY, LOGS.
 
 Result:
 
@@ -45,7 +45,7 @@ Result:
 ## 1.1. Stack
 
 - [Typescript](https://www.typescriptlang.org/.docs/handbook/typescript-in-5-minutes.html)
-- [Node](https://nodejs.org/en/about/) >= v16.13.1
+- [Node](https://nodejs.org/en/about/)
 - [Docker](https://www.docker.com/resources/what-container)
 - [Express](https://expressjs.com/)
 - [Inversify](https://inversify.io/)
@@ -197,6 +197,22 @@ vscode extension id in .vscode/extensions.json:
 # 5. Software Architecture
 
 Main folder tree.
+
+C:.
+
+-src
+-├───constants
+-├───core
+-├───middleware
+-├───modules
+-│ ├───controllers
+-│ ├───dtos
+-│ ├───inputs
+-│ ├───interfaces
+-│ ├───repositories
+-│ ├───services
+-│ └───validators
+-└───util
 
 # 6. Recommended Extensions
 
