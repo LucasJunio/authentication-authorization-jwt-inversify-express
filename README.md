@@ -7,7 +7,7 @@
 </h3>
 
 <h4 align="center">
-	🚧   Development 🚀 🚧
+	🚧   Finished 🚀 🚧
 </h4>
 
 ### Prerequisites
@@ -119,7 +119,7 @@ $ yarn start
 
 The aplication going to open in port:3000 - access [http://localhost:3000](http://localhost:3000)
 
-### 2.1.1 Evaluating the login app
+### 2.3 Evaluating the login app
 
 You can login by sending a POST request to the `/api/v1/login` endpoint. Here's an example using cURL:
 
@@ -151,7 +151,7 @@ curl -X GET
 
 The response will include the machine name and its health score.
 
-### 2.1.2 API Endpoints
+### 2.4 API Endpoints
 
 - `POST /private-route`: Checks if isAuthenticatedAndAuthorized middleware is working by getting session token and cookie.
 - `POST /login`: Generate a token and ssesion.
