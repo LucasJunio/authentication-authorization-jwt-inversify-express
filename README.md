@@ -23,28 +23,43 @@ Beyond is good to has an editor for to work with the code like [VSCode](https://
   - [1.2. Auxiliary libs](#12-auxiliary-libs)
 - [2. How To Run](#2-🔬-how-to-run)
   - [2.1 Containers](#21-containers)
-- [3. Recommended Extensions](#3-recommended-extensions)
+  - [2.2 Local](#22-local)
+  - [2.3 Evaluating Sigin and Private Route](#23-evaluating)
+  - [2.4 API Endpoints](#24-endpoints)
+- [3. Prisma Local Database](#3-prisma-database)
+- [4. How to create a new branch](#4-new-branch)
+  - [4.1 Commits](#41-commits)
+- [5. Software Architecture](#5-software-architecture)
+- [6. Recommended Extensions](#6-recommended-extensions)
+
+Prisma Local Database
 
 # 1. Overview
 
-Authentication and authorization api
+Welcome to the Authentication and Authorization API! This API allows you to signin making authenticationa and authorization, receiving a token and a session cookie. This README provides instructions on how to set up and use the API. On this application you can see concepts like SOLID, EventEmitter, DRY.
+
+Result:
+
+![API](.docs/gifs/main.gif)
 
 ## 1.1. Stack
 
 - [Typescript](https://www.typescriptlang.org/.docs/handbook/typescript-in-5-minutes.html)
 - [Node](https://nodejs.org/en/about/) >= v16.13.1
-- [GitHub](https://github.com/)
-- [Jest](https://jestjs.io/)
 - [Docker](https://www.docker.com/resources/what-container)
+- [Express](https://expressjs.com/)
+- [Inversify](https://inversify.io/)
+- [Prisma](https://www.prisma.io/)
+- [GitHub](https://github.com/)
 
 ## 1.2. Auxiliary libs
 
 - [Joi](https://joi.dev)
-- [Prisma](https://www.prisma.io/)
+- [Bcrypt](https://www.npmjs.com/package/bcrypt)
+- [JWT](https://jwt.io/)
+- [Winston](https://www.npmjs.com/package/winston)
 
 # 2. 🔬 How To Run
-
-## 2.1. Containers
 
 ```bash
 
@@ -53,6 +68,12 @@ $ git clone https://github.com/LucasJunio/authentication-authorization-jwt-inver
 
 # Acces the project folder in your terminal/cmd
 $ cd authentication-authorization-jwt-inversify-express
+
+```
+
+## 2.1. Containers
+
+```bash
 
 # Copy base.env to .env
 $ cp base.env .env
@@ -66,14 +87,118 @@ $ docker run -e CI=true auth npm run test
 # Build the container docker
 $ docker run -p 3000:3000 auth
 
-# Access SWAGGER documentation in:
-http://localhost:3000/api
-
 # The aplication going to open in  port:3000 - access http://localhost:3000
 
 ```
 
-# 3. Recommended Extensions
+## 2.2. Local
+
+Run the development server local with &quot;yarn&quot;, &quot;npm&quot;, &quot;pnpm&quot; or manager package your preference:
+
+```bash
+
+# Create .env file
+$ cp base.env .env
+
+# Install dependencies
+$ yarn install
+
+# Generate the TypeScript code associated with your database models
+$ npx prisma generate
+
+# Building migrations
+$ npx prisma migrate dev
+
+# Building mock data
+$ npx prisma db seed
+
+# Run the project
+$ yarn start
+
+```
+
+The aplication going to open in port:3000 - access [http://localhost:3000](http://localhost:3000)
+
+### 2.1.1 Evaluating the login app
+
+You can login by sending a POST request to the `/api/v1/login` endpoint. Here's an example using cURL:
+
+```bash
+
+curl -X POST \
+  -H "Content-Type: application/json" \
+  -d '{
+  {
+    "username": "user",
+    "password": "123456"
+  }
+}' \
+  http://localhost:3000/api/v1/login
+
+```
+
+The response will be a token.
+
+You can evaluate the private route by sending a GET request to the `/api/v1/private-route` endpoint. Here's an example using cURL:
+
+```bash
+curl -X GET
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_TOKEN_HERE" \
+  -H "Cookie: session=YOUR_COOKIE_HERE" \
+ http://localhost:3000/api/v1/private-route
+```
+
+The response will include the machine name and its health score.
+
+### 2.1.2 API Endpoints
+
+- `POST /private-route`: Checks if isAuthenticatedAndAuthorized middleware is working by getting session token and cookie.
+- `POST /login`: Generate a token and ssesion.
+
+# 3. Prisma Local Database
+
+You can see the local database Prisma Studio is up on http://localhost:5555.
+
+```bash
+
+# Running local database
+$ npx prisma studio
+
+```
+
+Result:
+
+![Prisma Local Database](.docs/gifs/prisma-database.gif)
+
+# 4. How to create a new branch
+
+Ever that's necessary to create a new branch feature, create by [main]branch, implement your development, merge this feature/branch to develop, when all it's ok, give a merge of this feature/branch to main[branch].
+
+Let's go to follow the git flow patterns to create a new branch, to more info browse in link below to learn more how to implement in simple way.
+
+Workflow gitflow: https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow
+
+```bash
+
+# Example creating a new branch
+$ git checkout -b feature/TASK-1
+
+```
+
+## 4.1. Commits
+
+For commit your changes, you can follow the suggestion to use conventional commits [https://www.conventionalcommits.org/en/v1.0.0/] for to improve your commit descriptions and help the understand of the team. Exist a extension in vscode that can help you with this mission.
+
+vscode extension id in .vscode/extensions.json:
+
+"recommendations": ["vivaxy.vscode-conventional-commits"]
+
+# 5. Software Architecture
+
+Main folder tree.
+
+# 6. Recommended Extensions
 
 You can check out a list of recommended extensions in the file `.vscode/extensions.json`, or by opening the "Extensions" Tab in the "Recommended" pane.
 

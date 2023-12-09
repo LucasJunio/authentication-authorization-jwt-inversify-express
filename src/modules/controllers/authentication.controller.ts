@@ -20,7 +20,7 @@ export class AuthenticationController implements interfaces.Controller {
    * @param {Login.model} login.body - Login DTO
    * @returns {Token.model} 200 - Token
    */
-  @httpPost('/')
+  @httpPost('/login')
   public async login(
     @request() req: Request,
     @response() res: Response,
@@ -35,7 +35,7 @@ export class AuthenticationController implements interfaces.Controller {
     }
   }
 
-  @httpGet('/', isAuthenticatedAndAuthorized('admin'))
+  @httpGet('/private-route', isAuthenticatedAndAuthorized('admin'))
   public async privateRoute(@response() res: Response): Promise<Response> {
     try {
       const data = 'you are authenticated and authorized to access this private route';
