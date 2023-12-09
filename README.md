@@ -200,19 +200,19 @@ Main folder tree.
 
 C:.
 
--src
--├───constants
--├───core
--├───middleware
--├───modules
--│ ├───controllers
--│ ├───dtos
--│ ├───inputs
--│ ├───interfaces
--│ ├───repositories
--│ ├───services
--│ └───validators
--└───util
+- src
+- ├───constants
+- ├───core
+- ├───middleware
+- ├───modules
+- │ ├───controllers
+- │ ├───dtos
+- │ ├───inputs
+- │ ├───interfaces
+- │ ├───repositories
+- │ ├───services
+- │ └───validators
+- └───util
 
 # 6. Recommended Extensions
 
