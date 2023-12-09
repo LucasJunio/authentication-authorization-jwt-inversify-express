@@ -81,9 +81,6 @@ $ cp base.env .env
 # Build the image docker
 $ docker build -t auth .
 
-# Run tests
-$ docker run -e CI=true auth npm run test
-
 # Build the container docker
 $ docker run -p 3001:3001 auth
 

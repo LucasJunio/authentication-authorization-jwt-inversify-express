@@ -4,7 +4,7 @@
   "description": "api to authentication and authorization",
   "main": "src/app.ts",
   "scripts": {
-    "start": "cross-env NODE_ENV=development nodemon src/app.ts",
+    "start": "nodemon src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "prisma": {
