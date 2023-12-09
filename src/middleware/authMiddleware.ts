@@ -15,7 +15,9 @@ const isAuthenticatedAndAuthorized = (role: string) => {
 
     if (!/^Bearer$/.test(scheme)) return res.status(401).send({ error: 'Token malformatted' });
 
-    jwt.verify(token, process.env.JWT_SECRET, (err) => {
+    const SECRET = process.env.JWT_SECRET || 'SECRET';
+
+    jwt.verify(token, SECRET, (err) => {
       if (err) return res.status(401).send({ error: 'Token invalid' });
     });
 

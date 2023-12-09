@@ -85,9 +85,9 @@ $ docker build -t auth .
 $ docker run -e CI=true auth npm run test
 
 # Build the container docker
-$ docker run -p 3000:3000 auth
+$ docker run -p 3001:3001 auth
 
-# The aplication going to open in  port:3000 - access http://localhost:3000
+# The aplication going to open in  port:3001 - access http://localhost:3001
 
 ```
 
@@ -117,7 +117,7 @@ $ yarn start
 
 ```
 
-The aplication going to open in port:3000 - access [http://localhost:3000](http://localhost:3000)
+The aplication going to open in port:3001 - access [http://localhost:3001](http://localhost:3001)
 
 ### 2.3 Evaluating Signin and Private Route
 
@@ -133,7 +133,7 @@ curl -X POST \
     "password": "123456"
   }
 }' \
-  http://localhost:3000/api/v1/login
+  http://localhost:3001/api/v1/login
 
 ```
 
@@ -146,7 +146,7 @@ curl -X GET
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_TOKEN_HERE" \
   -H "Cookie: session=YOUR_COOKIE_HERE" \
- http://localhost:3000/api/v1/private-route
+ http://localhost:3001/api/v1/private-route
 ```
 
 The response will include the machine name and its health score.

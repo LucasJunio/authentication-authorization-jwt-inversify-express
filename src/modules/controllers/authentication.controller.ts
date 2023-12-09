@@ -7,7 +7,7 @@ import { LoginInput } from '../inputs/login.input';
 import { IAuthenticationService } from '../interfaces/authentication.service.interface';
 import { AuthenticationService } from '../services/authentication.service';
 
-@controller('/api/v1/auth')
+@controller('/api/v1')
 export class AuthenticationController implements interfaces.Controller {
   constructor(
     @inject(AuthenticationService)

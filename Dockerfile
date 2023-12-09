@@ -10,6 +10,6 @@ COPY . /app/
 RUN npx prisma generate
 RUN npx prisma migrate dev
 
-EXPOSE 3000
+EXPOSE 3001
 
 CMD [ "yarn", "start" ]
