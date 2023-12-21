@@ -1,5 +1,5 @@
 <h1 align="center">
-     🐙 <a href="#" alt=""> Node.js Test Authenticatio/Authorization</a>
+     🐙 <a href="#" alt=""> Node.js Test Authentication/Authorization</a>
 </h1>
 
 <h3 align="center">
