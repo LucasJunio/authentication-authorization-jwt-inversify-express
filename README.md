@@ -32,7 +32,6 @@ Beyond is good to has an editor for to work with the code like [VSCode](https://
 - [5. Software Architecture](#5-software-architecture)
 - [6. Recommended Extensions](#6-recommended-extensions)
 
-Prisma Local Database
 
 # 1. Overview
 
