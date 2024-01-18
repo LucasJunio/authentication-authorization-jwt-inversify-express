@@ -35,7 +35,7 @@ Beyond is good to has an editor for to work with the code like [VSCode](https://
 
 # 1. Overview
 
-Welcome to the Authentication and Authorization API! This API allows you to signin making authenticationa and authorization, receiving a token and a session cookie. This README provides instructions on how to set up and use the API. On this application you can see concepts like SOLID, EventEmitter, DRY, LOGS.
+Welcome to the Authentication and Authorization API! This API allows you to signin making authentication and authorization, receiving a token and a session cookie. This README provides instructions on how to set up and use the API. On this application you can see concepts like SOLID, EventEmitter, DRY, LOGS.
 
 Result:
 
